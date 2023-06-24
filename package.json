@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2",
     "@headlessui/react": "^1.7.15",
     "@react-google-maps/api": "^2.18.1",
     "autoprefixer": "10.4.14",
