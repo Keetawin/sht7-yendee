@@ -1,30 +1,7 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import {HeatmapLayerF, MarkerF} from '@react-google-maps/api';
-
-
-const data_latlng = [{
-  lat: 13.720,
-  lng: 100.498
-},
-{
-  lat: 13.721,
-  lng: 100.498
-},
-{
-  lat: 13.722,
-  lng: 100.498
-},
-{
-  lat: 13.721,
-  lng: 100.499
-},
-{
-  lat: 13.720,
-  lng: 100.499
-}];
-
-
+import { InfoWindow } from '@react-google-maps/api';
 const gradient = [
   "rgba(0, 255, 255, 0)",
   "rgba(0, 255, 255, 1)",
@@ -67,6 +44,7 @@ function MyComponent(props) {
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
   }, [])
+
   const [currentZoom, setCurrentZoom] = React.useState(18)
   const [marker, setMarker] = React.useState(1);
   function handleZoomChanged() {
@@ -84,12 +62,20 @@ function MyComponent(props) {
   function handleClick() {
     console.log(currentZoom);
   }
+
   const [heatmap, setHeatmap] = React.useState(null);
   const onLoadHeatmap = React.useCallback(function callback(maps) {
     setHeatmap(maps);
     maps.setMap(null);
     maps.set("gradient", gradient);
   }, []);
+
+  const markers = (
+    (marker == 1 && props.data != 0) ? props.data.map((item, index) => (
+      <MarkerF position={{lat:item.lat, lng:item.long}} key={index} label={index.toString()} onClick={}> 
+      </MarkerF>
+    )) : <></>
+  );
 
   return isLoaded ? (
       <GoogleMap
@@ -104,18 +90,16 @@ function MyComponent(props) {
         onClick={props.onClick}
 
       >
-
+        
       {/* Marker */}
-      {(marker == 1) ? data_latlng.map((item, index) => (
-        <MarkerF position={item} key={index}></MarkerF>
-      )) : <></>
-      }
+      {markers}
       
 
       {/* Heatmap Layer */}
+      {(props.data != 0)?
       <HeatmapLayerF onLoad={onLoadHeatmap} data={
-        data_latlng.map((item, index) => {return new google.maps.LatLng(item.lat, item.lng)} )
-      } />
+        props.data.map((item, index) => {return new google.maps.LatLng(item.lat, item.long)} )
+      } /> :<></>}
 <></>
       </GoogleMap>
   ) : <></>
