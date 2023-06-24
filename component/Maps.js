@@ -72,7 +72,7 @@ function MyComponent(props) {
 
   const markers = (
     (marker == 1 && props.data != 0) ? props.data.map((item, index) => (
-      <MarkerF position={{lat:item.lat, lng:item.long}} key={index} label={index.toString()} onClick={}> 
+      <MarkerF position={{lat:item.lat, lng:item.long}} key={index} label={index.toString()}> 
       </MarkerF>
     )) : <></>
   );
@@ -85,7 +85,7 @@ function MyComponent(props) {
         onZoomChanged={handleZoomChanged}
         onLoad={onLoad}
         onUnmount={onUnmount}
-
+        options={{"disableDefaultUI":true}}
         // onClick
         onClick={props.onClick}
 

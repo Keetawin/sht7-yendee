@@ -170,24 +170,13 @@ export default function Home() {
 
   return (
     <main>
-      <div className="h-screen"><Map></Map></div>
       <button
-        className="absolute flex justify-center items-center w-12 h-12 rounded-full bg-[#060047] text-white text-2xl font-bold shadow focus:outline-none hover:bg-[#E90064] transition-colors duration-300"
+        className="z-10 fixed flex justify-center items-center w-12 h-12 rounded-full bg-[#060047] text-white text-2xl font-bold shadow focus:outline-none hover:bg-[#E90064] transition-colors duration-300"
         onClick={openModal}
       >
         +
       </button>
-
-      {data.map((item) => (
-        <div key={item.id}>
-          <p>{item.contribute}</p>
-          <p>{item.img}</p>
-          <p>{item.lat}</p>
-          <p>{item.long}</p>
-          <p>{item.locatioName}</p>
-          <p>{item.message}</p>
-        </div>
-      ))}
+      <div className="h-screen"><Map data={data}></Map></div>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
