@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 import { useDropzone } from "react-dropzone";
-import Map from "../component/Maps.js"
+import Map from "../component/Maps.js";
 
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 
@@ -22,7 +22,7 @@ export default function Home() {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    libraries: ['visualization'],
+    libraries: ["visualization"],
     googleMapsApiKey: "AIzaSyBv-q3qRdY4WeAmR940r8LWmQjrz6b8RII",
   });
 
@@ -149,7 +149,7 @@ export default function Home() {
         message: message,
         contribute: contribute,
         lat: position.lat,
-        long: position.long,
+        long: position.lng,
         img: imageUrl,
         locationName: locationName,
       });
@@ -159,7 +159,7 @@ export default function Home() {
       setMessage("");
       setContribute("");
       setLatitude(position.lat);
-      setLongitude(position.long);
+      setLongitude(position.lng);
       setLocationName("");
       setImage(imageUrl);
     } catch (error) {
@@ -171,12 +171,14 @@ export default function Home() {
   return (
     <main>
       <button
-        className="z-10 fixed flex justify-center items-center w-12 h-12 rounded-full bg-[#060047] text-white text-2xl font-bold shadow focus:outline-none hover:bg-[#E90064] transition-colors duration-300"
+        className="z-10 bottom-0 right-0 m-8  fixed flex justify-center items-center w-12 h-12 rounded-full bg-blue-600 text-white text-4xl font-bold shadow focus:outline-none hover:bg-blue-800 transition-colors duration-300"
         onClick={openModal}
       >
-        +
+        <p className="mb-1">+</p>
       </button>
-      <div className="h-screen"><Map data={data}></Map></div>
+      <div className="h-screen">
+        <Map data={data}></Map>
+      </div>
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
