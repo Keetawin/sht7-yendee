@@ -35,6 +35,7 @@ function MyComponent(props) {
 
   const [map, setMap] = React.useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [modal_data, setModal_data] = useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
     setMap(map);
@@ -74,8 +75,12 @@ function MyComponent(props) {
         <MarkerF
           position={{ lat: item.lat, lng: item.long }}
           key={index}
-          onClick={openModal}
+          onClick={()=>{
+            setModal_data(item);
+            openModal();
+          }}
           label={index.toString()}
+          icon={"/icon_air.png"}
         ></MarkerF>
       ))
     ) : (
@@ -158,10 +163,10 @@ function MyComponent(props) {
                   as="h3"
                   className="text-lg mb-4 font-semibold leading-6 text-gray-900"
                 >
-                  Title
+                  {modal_data?.locationName}
                 </Dialog.Title>
 
-                <div className="mt-2">img</div>
+                <div className="mt-2"><img src={modal_data?.img}></img></div>
               </div>
             </Transition.Child>
           </div>
