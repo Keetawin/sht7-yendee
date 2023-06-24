@@ -79,7 +79,7 @@ function MyComponent(props) {
             setModal_data(item);
             openModal();
           }}
-          label={index.toString()}
+          // label={index.toString()}
           icon={"/icon_air.png"}
         ></MarkerF>
       ))
