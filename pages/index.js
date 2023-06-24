@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "./firebase";
 import { useDropzone } from "react-dropzone";
+import Map from "../component/Maps.js"
 
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
 
@@ -21,6 +22,7 @@ export default function Home() {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
+    libraries: ['visualization'],
     googleMapsApiKey: "AIzaSyBv-q3qRdY4WeAmR940r8LWmQjrz6b8RII",
   });
 
@@ -168,8 +170,9 @@ export default function Home() {
 
   return (
     <main>
+      <div className="h-screen"><Map></Map></div>
       <button
-        className="flex justify-center items-center w-12 h-12 rounded-full bg-[#060047] text-white text-2xl font-bold shadow focus:outline-none hover:bg-[#E90064] transition-colors duration-300"
+        className="absolute flex justify-center items-center w-12 h-12 rounded-full bg-[#060047] text-white text-2xl font-bold shadow focus:outline-none hover:bg-[#E90064] transition-colors duration-300"
         onClick={openModal}
       >
         +
