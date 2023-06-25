@@ -5,16 +5,16 @@ import { HeatmapLayerF, MarkerF } from "@react-google-maps/api";
 import { Dialog, Transition } from "@headlessui/react";
 import { InfoWindow } from "@react-google-maps/api";
 const gradient = [
-  "rgba(0, 255, 255, 0)",
-  "rgba(0, 255, 255, 1)",
-  "rgba(0, 191, 255, 1)",
-  "rgba(0, 127, 255, 1)",
-  "rgba(0, 63, 255, 1)",
-  "rgba(0, 0, 255, 1)",
-  "rgba(0, 0, 223, 1)",
-  "rgba(0, 0, 191, 1)",
-  "rgba(0, 0, 159, 1)",
-  "rgba(0, 0, 127, 1)",
+  "rgba(255, 255, 0, 0)",
+  "rgba(255, 255, 0, 1)",
+  "rgba(255, 239, 0, 1)",
+  "rgba(255, 223, 0, 1)",
+  "rgba(255, 207, 0, 1)",
+  "rgba(255, 191, 0, 1)",
+  "rgba(255, 175, 0, 1)",
+  "rgba(255, 159, 0, 1)",
+  "rgba(255, 143, 0, 1)",
+  "rgba(255, 127, 0, 1)",
 ];
 
 const containerStyle = {
@@ -80,7 +80,7 @@ function MyComponent(props) {
             openModal();
           }}
           // label={index.toString()}
-          icon={"/icon_air.png"}
+          icon={"/yellow.png"}
         ></MarkerF>
       ))
     ) : (
