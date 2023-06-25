@@ -171,10 +171,10 @@ export default function Home() {
   return (
     <main>
       <button
-        className="z-10 bottom-0 right-0 m-8  fixed flex justify-center items-center w-12 h-12 rounded-full bg-blue-600 text-white text-4xl font-bold shadow focus:outline-none hover:bg-blue-800 transition-colors duration-300"
+        className="z-10 bottom-0 right-0 m-8  fixed flex justify-center items-center w-12 h-12 rounded-full bg-yellow-500 text-white text-4xl font-bold shadow focus:outline-none hover:bg-yellow-700 transition-colors duration-300"
         onClick={openModal}
       >
-        <p className="mb-1">+</p>
+        <p className="">🇹🇭</p>
       </button>
       <div className="h-screen">
         <Map data={data}></Map>
@@ -218,9 +218,9 @@ export default function Home() {
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg mb-4 font-semibold leading-6 text-gray-900"
+                  className="text-lg mb-4 font-semibold leading-6 text-yellow-500"
                 >
-                  Add Yenn
+                  เพิ่มป้ายทรงพระเจริญ
                 </Dialog.Title>
 
                 {isLoaded ? (
@@ -239,9 +239,9 @@ export default function Home() {
                 <div className="mt-5">
                   <label
                     htmlFor="poster"
-                    className="mb-3 block text-base font-medium text-[#060047]"
+                    className="mb-3 block text-base font-medium text-yellow-500"
                   >
-                    Poster Upload
+                    อัพโหลดพระบรมฉายาลักษณ์
                   </label>
                 </div>
                 <div>
@@ -286,9 +286,9 @@ export default function Home() {
                     <div className="mb-4">
                       <label
                         htmlFor="name"
-                        className="text-[#060047] font-medium mt-1 sm:mt-5 text-sm sm:text-md"
+                        className="text-yellow-500 font-medium mt-1 sm:mt-5 text-sm sm:text-md"
                       >
-                        Location Name
+                        ชื่อสถานที่
                       </label>
                       <input
                         id="name"
@@ -302,9 +302,9 @@ export default function Home() {
                     <div className="mb-4">
                       <label
                         htmlFor="telephone"
-                        className="text-[#060047] font-medium mt-1 sm:mt-5 text-sm sm:text-md"
+                        className="text-yellow-500 font-medium mt-1 sm:mt-5 text-sm sm:text-md"
                       >
-                        Contribute
+                        ชื่อผู้จงรักภักดี
                       </label>
                       <input
                         id="telephone"
@@ -318,9 +318,9 @@ export default function Home() {
                     <div className="mb-4">
                       <label
                         htmlFor="website"
-                        className="text-[#060047] font-medium mt-1 sm:mt-5 text-sm sm:text-md"
+                        className="text-yellow-500 font-medium mt-1 sm:mt-5 text-sm sm:text-md"
                       >
-                        Details
+                        ใส่รายละเอียด
                       </label>
                       <textarea
                         id="website"
@@ -337,7 +337,7 @@ export default function Home() {
                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-[#060047] border border-transparent rounded-md hover:bg-[#E90064] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                         type="submit"
                         style={{
-                          background: loader ? "#ccc" : "rgb(2, 2, 110)",
+                          background: loader ? "#ccc" : "rgba(255, 207, 0, 1)",
                         }}
                       >
                         Submit

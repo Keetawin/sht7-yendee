@@ -171,7 +171,7 @@ function MyComponent(props) {
                 </div>
                 <p className="mt-4"> {modal_data?.message}</p>
                 <p className="mt-4 text-xs">
-                  Contribute: {modal_data?.contribute}
+                  ผู้จกรักภักดี: {modal_data?.contribute}
                 </p>
               </div>
             </Transition.Child>
