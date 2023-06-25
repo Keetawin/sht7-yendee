@@ -75,7 +75,7 @@ function MyComponent(props) {
         <MarkerF
           position={{ lat: item.lat, lng: item.long }}
           key={index}
-          onClick={()=>{
+          onClick={() => {
             setModal_data(item);
             openModal();
           }}
@@ -166,7 +166,13 @@ function MyComponent(props) {
                   {modal_data?.locationName}
                 </Dialog.Title>
 
-                <div className="mt-2"><img src={modal_data?.img}></img></div>
+                <div className="mt-2">
+                  <img src={modal_data?.img}></img>
+                </div>
+                <p className="mt-4"> {modal_data?.message}</p>
+                <p className="mt-4 text-xs">
+                  Contribute: {modal_data?.contribute}
+                </p>
               </div>
             </Transition.Child>
           </div>
